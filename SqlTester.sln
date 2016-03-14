@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlTester.Oracle", "SqlTester.Oracle\SqlTester.Oracle.csproj", "{1823D751-1563-47DD-8DAC-C65C8B7447D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlTester.SqlServer", "SqlTester.SqlServer\SqlTester.SqlServer.csproj", "{3D6DBAD1-2C86-4F01-BECF-6904901B20DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1823D751-1563-47DD-8DAC-C65C8B7447D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1823D751-1563-47DD-8DAC-C65C8B7447D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1823D751-1563-47DD-8DAC-C65C8B7447D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6DBAD1-2C86-4F01-BECF-6904901B20DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6DBAD1-2C86-4F01-BECF-6904901B20DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6DBAD1-2C86-4F01-BECF-6904901B20DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6DBAD1-2C86-4F01-BECF-6904901B20DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

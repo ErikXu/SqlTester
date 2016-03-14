@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using NUnit.Framework;
-using Oracle.ManagedDataAccess.Client;
-using SqlTester.Oracle.Core;
+using SqlTester.SqlServer.Core;
 
-namespace SqlTester.Oracle
+namespace SqlTester.SqlServer
 {
     [TestFixture]
     public class SampleTests
@@ -23,9 +23,9 @@ namespace SqlTester.Oracle
             const string col3 = "col3";
             const string sql = @"insert into sample (col1, col2, col3) values (:col1, :col2, :col3)";
 
-            var result = sql.ExecuteNonQuery(FluentParameter.In("col1", OracleDbType.Varchar2).SetSize(50).SetValue(col1),
-                                             FluentParameter.In("col2", OracleDbType.Varchar2).SetSize(50).SetValue(col2),
-                                             FluentParameter.In("col3", OracleDbType.Varchar2).SetSize(50).SetValue(col3));
+            var result = sql.ExecuteNonQuery(FluentParameter.In("col1", SqlDbType.VarChar).SetSize(50).SetValue(col1),
+                                             FluentParameter.In("col2", SqlDbType.VarChar).SetSize(50).SetValue(col2),
+                                             FluentParameter.In("col3", SqlDbType.VarChar).SetSize(50).SetValue(col3));
 
             Assert.AreEqual(1, result);
         }
@@ -44,10 +44,10 @@ namespace SqlTester.Oracle
                                      col3 = :col3
                                      where id = :id";
 
-            sql.ExecuteNonQuery(FluentParameter.In("col1", OracleDbType.Varchar2).SetSize(50).SetValue(col1),
-                                FluentParameter.In("col2", OracleDbType.Varchar2).SetSize(50).SetValue(col2),
-                                FluentParameter.In("col3", OracleDbType.Varchar2).SetSize(50).SetValue(col3),
-                                FluentParameter.In("id", OracleDbType.Int32).SetValue(id));
+            sql.ExecuteNonQuery(FluentParameter.In("col1", SqlDbType.VarChar).SetSize(50).SetValue(col1),
+                                FluentParameter.In("col2", SqlDbType.VarChar).SetSize(50).SetValue(col2),
+                                FluentParameter.In("col3", SqlDbType.VarChar).SetSize(50).SetValue(col3),
+                                FluentParameter.In("id", SqlDbType.Int).SetValue(id));
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace SqlTester.Oracle
         {
             const int id = 2;
             const string sql = @"delete from sample where id = :id";
-            sql.ExecuteNonQuery(FluentParameter.In("id", OracleDbType.Int32).SetValue(id));
+            sql.ExecuteNonQuery(FluentParameter.In("id", SqlDbType.Int).SetValue(id));
         }
 
         [Test]
@@ -87,7 +87,7 @@ namespace SqlTester.Oracle
                 Col2 = reader.GetString("col2"),
                 Col3 = reader.GetString("col3")
             },
-            FluentParameter.In("id", OracleDbType.Int32).SetValue(id));
+            FluentParameter.In("id", SqlDbType.Int).SetValue(id));
 
             Console.WriteLine("Existed? {0}", result.Any());
         }
@@ -98,8 +98,8 @@ namespace SqlTester.Oracle
             const string para1 = "para1";
             const string para2 = "para2";
             const string sql = @"Your stored procudure name";
-            sql.ExecuteStoredProcedure(FluentParameter.In("para1", OracleDbType.Varchar2).SetSize(50).SetValue(para1),
-                                       FluentParameter.In("para2", OracleDbType.Varchar2).SetSize(50).SetValue(para2));
+            sql.ExecuteStoredProcedure(FluentParameter.In("para1", SqlDbType.VarChar).SetSize(50).SetValue(para1),
+                                       FluentParameter.In("para2", SqlDbType.VarChar).SetSize(50).SetValue(para2));
         }
 
         [Test]
